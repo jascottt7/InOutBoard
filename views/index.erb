@@ -1,0 +1,14 @@
+<table class="table">
+<tbody>
+  <% @staff.each do |staff| %>
+    <%= staff[:status] ? "<tr class='error' id=" + staff[:id].to_s + ">": "<tr class='success' id=" + staff[:id].to_s + ">" %>
+	  <td><%= staff[:fname] + " " + staff[:lname] %></td>
+      <td><a href="#" class="btn status"><%= staff[:status] ? "Sign In" : "Sign Out" %></a>
+      <a href="/delete/<%= staff[:id] %>" class="btn btn-danger">Delete</a></td>
+    </tr>
+  <% end %>
+</tbody>  
+</table>
+
+
+<a href="/new" class="btn btn-primary">Add Staff</a>
